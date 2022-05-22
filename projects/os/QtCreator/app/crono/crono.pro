@@ -13,57 +13,70 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: libucrono.pri
+#   File: crono.pro
 #
 # Author: $author$
-#   Date: 3/28/2022, 5/11/2022
+#   Date: 5/11/2022
 #
-# generic QtCreator project .pri file for framework ucrono static library libucrono
+# os specific QtCreator project .pro file for framework ucrono executable crono
 ########################################################################
-
-########################################################################
-# libucrono
-XOS_LIB_UCRONO_VERSION_BUILD_DATE = 5/11/2022 #$$system(~/bin/utility/tdate)
-
-# libucrono TARGET
 #
-libucrono_TARGET = ucrono
-libucrono_TEMPLATE = lib
-libucrono_CONFIG += staticlib
-
-# libucrono INCLUDEPATH
+# Debug: ucrono/build/os/QtCreator/Debug/bin/crono
+# Release: ucrono/build/os/QtCreator/Release/bin/crono
+# Profile: ucrono/build/os/QtCreator/Profile/bin/crono
 #
-libucrono_INCLUDEPATH += \
-$${ucrono_INCLUDEPATH} \
+include(../../../../../build/QtCreator/ucrono.pri)
+include(../../../../QtCreator/ucrono.pri)
+include(../../ucrono.pri)
+include(../../../../QtCreator/app/crono/crono.pri)
 
-# libucrono DEFINES
-#
-libucrono_DEFINES += \
-$${ucrono_DEFINES} \
-DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_LIB_UCRONO_VERSION_BUILD_DATE=$${XOS_LIB_UCRONO_VERSION_BUILD_DATE} \
+TARGET = $${crono_TARGET}
 
 ########################################################################
-# libucrono OBJECTIVE_HEADERS
+# INCLUDEPATH
 #
-#libucrono_OBJECTIVE_HEADERS += \
-#$${UCRONO_SRC}/xos/lib/ucrono/version.hh \
+INCLUDEPATH += \
+$${crono_INCLUDEPATH} \
 
-# libucrono OBJECTIVE_SOURCES
-#
-#libucrono_OBJECTIVE_SOURCES += \
-#$${UCRONO_SRC}/xos/lib/ucrono/version.mm \
+# DEFINES
+# 
+DEFINES += \
+$${crono_DEFINES} \
 
 ########################################################################
-# libucrono HEADERS
+# OBJECTIVE_HEADERS
 #
-libucrono_HEADERS += \
-$${UCRONO_SRC}/xos/lib/ucrono/version.hpp \
+OBJECTIVE_HEADERS += \
+$${crono_OBJECTIVE_HEADERS} \
 
-# libucrono SOURCES
+# OBJECTIVE_SOURCES
 #
-libucrono_SOURCES += \
-$${UCRONO_SRC}/xos/lib/ucrono/version.cpp \
+OBJECTIVE_SOURCES += \
+$${crono_OBJECTIVE_SOURCES} \
+
+########################################################################
+# HEADERS
+#
+HEADERS += \
+$${crono_HEADERS} \
+$${crono_OBJECTIVE_HEADERS} \
+
+# SOURCES
+#
+SOURCES += \
+$${crono_SOURCES} \
+
+########################################################################
+# FRAMEWORKS
+#
+FRAMEWORKS += \
+$${crono_FRAMEWORKS} \
+
+# LIBS
+#
+LIBS += \
+$${crono_LIBS} \
+$${FRAMEWORKS} \
 
 ########################################################################
 

@@ -13,57 +13,69 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: libucrono.pri
+#   File: crono.pri
 #
 # Author: $author$
-#   Date: 3/28/2022, 5/11/2022
+#   Date: 5/11/2022
 #
-# generic QtCreator project .pri file for framework ucrono static library libucrono
+# generic QtCreator project .pri file for framework ucrono executable crono
 ########################################################################
 
 ########################################################################
-# libucrono
-XOS_LIB_UCRONO_VERSION_BUILD_DATE = 5/11/2022 #$$system(~/bin/utility/tdate)
+# crono
 
-# libucrono TARGET
+# crono TARGET
 #
-libucrono_TARGET = ucrono
-libucrono_TEMPLATE = lib
-libucrono_CONFIG += staticlib
+crono_TARGET = crono
 
-# libucrono INCLUDEPATH
+# crono INCLUDEPATH
 #
-libucrono_INCLUDEPATH += \
+crono_INCLUDEPATH += \
 $${ucrono_INCLUDEPATH} \
 
-# libucrono DEFINES
+# crono DEFINES
 #
-libucrono_DEFINES += \
+crono_DEFINES += \
 $${ucrono_DEFINES} \
 DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_LIB_UCRONO_VERSION_BUILD_DATE=$${XOS_LIB_UCRONO_VERSION_BUILD_DATE} \
+XOS_CONSOLE_MAIN_MAIN \
 
 ########################################################################
-# libucrono OBJECTIVE_HEADERS
+# crono OBJECTIVE_HEADERS
 #
-#libucrono_OBJECTIVE_HEADERS += \
-#$${UCRONO_SRC}/xos/lib/ucrono/version.hh \
+#crono_OBJECTIVE_HEADERS += \
+#$${UCRONO_SRC}/xos/app/console/crono/version/main.hh \
 
-# libucrono OBJECTIVE_SOURCES
+# crono OBJECTIVE_SOURCES
 #
-#libucrono_OBJECTIVE_SOURCES += \
-#$${UCRONO_SRC}/xos/lib/ucrono/version.mm \
-
-########################################################################
-# libucrono HEADERS
-#
-libucrono_HEADERS += \
-$${UCRONO_SRC}/xos/lib/ucrono/version.hpp \
-
-# libucrono SOURCES
-#
-libucrono_SOURCES += \
-$${UCRONO_SRC}/xos/lib/ucrono/version.cpp \
+#crono_OBJECTIVE_SOURCES += \
+#$${UCRONO_SRC}/xos/app/console/crono/version/main.mm \
 
 ########################################################################
+# crono HEADERS
+#
+crono_HEADERS += \
+$${UCRONO_SRC}/xos/app/console/crono/version/main_opt.hpp \
+$${UCRONO_SRC}/xos/app/console/crono/version/main.hpp \
+
+# crono SOURCES
+#
+crono_SOURCES += \
+$${UCRONO_SRC}/xos/app/console/crono/version/main_opt.cpp \
+$${UCRONO_SRC}/xos/app/console/crono/version/main.cpp \
+
+########################################################################
+# crono FRAMEWORKS
+#
+crono_FRAMEWORKS += \
+$${ucrono_FRAMEWORKS} \
+
+# crono LIBS
+#
+crono_LIBS += \
+$${ucrono_LIBS} \
+
+########################################################################
+# NO Qt
+QT -= gui core
 
